@@ -1,14 +1,20 @@
 let string =
-  "%$£77joy56(&*^&%^$$%$^&*:@FHTSACDu'#||HΩºª•ª£¶§€ª¡®´ˆ¨ƒ∆˙∆˚œ∆µ˚¬∆µ¨√TFR";
+  "%$£*^&%^SACDu'#||HΩºª•ª£¶§€ª¡®´ˆ¨ƒ∆˙∆˚œ∆µ˚¬∆µ¨√TFR";
 let list = [];
 let rain = [];
 let tex;
+let input;
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
 
 function setup() {
+  input = createInput();
+let p = createP("Enter something into the void");
+p.position(windowWidth/2 - 75 , windowHeight/2-40)
+input.changed(User);
+input.position(windowWidth/2 - 35 , windowHeight/2+10);
   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   // canvas.position(windowWidth/2 - 300,0);
   canvas.style("z-index", "-1");
@@ -19,6 +25,7 @@ function setup() {
 tex = createGraphics(windowWidth, windowHeight);
 tex.noStroke();
 tex.background(0);
+tex.push(p);
 for (let i = 0; i < string.length; i++) {
 list.push(string[i]);
 }
@@ -86,7 +93,7 @@ class Letter {
     this.y = height+y;
     this.size = random(3, 8);
     this.letter = letter;
-    this.speed = random(-3, -5);
+    this.speed = random(-3, -8);
     this.move = 0;
   }
 
@@ -104,4 +111,8 @@ class Letter {
       this.y += 0;
     }
   }
+}
+
+function User() {
+  list.push(input.value())
 }
