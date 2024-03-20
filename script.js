@@ -12,9 +12,9 @@ function windowResized(){
 function setup() {
   input = createInput();
 let p = createP("Enter something into the void");
-p.position(windowWidth/2 - 75 , windowHeight/2-40)
+p.position(windowWidth/2 - 115 , windowHeight/2-40);
 input.changed(User);
-input.position(windowWidth/2 - 35 , windowHeight/2+10);
+input.position(windowWidth/2 - 75 , windowHeight/2+10);
   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   // canvas.position(windowWidth/2 - 300,0);
   canvas.style("z-index", "-1");
